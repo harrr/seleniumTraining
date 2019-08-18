@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -16,12 +15,12 @@ namespace SelenuimInitial
         public void start()
         {
             ChromeOptions options = new ChromeOptions();
-            options.AddArguments("--no-sandbox");
+            options.AddArgument("no-sandbox");
             driver = new ChromeDriver(options);
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
         }
 
-        [TestMethod]
+        [Test]
         public void InitialChromeTest()
         {
             driver.Navigate().GoToUrl("https://software-testing.ru/");

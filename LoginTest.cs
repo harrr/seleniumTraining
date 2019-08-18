@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -21,7 +20,7 @@ namespace SelenuimInitial
             _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
         }
 
-        [TestMethod]
+        [Test]
         public void LoginToShopTest()
         {
             _driver.Navigate().GoToUrl("http://localhost/litecart/admin/");
