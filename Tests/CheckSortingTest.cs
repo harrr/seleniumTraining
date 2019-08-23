@@ -78,6 +78,10 @@ namespace SelenuimInitial
                     IWebElement link = columns[2].FindElement(By.XPath("./a"));
                     link.Click();
                     CheckZonesForCountry();
+                    GetMainElement();
+                    menuItems = mainMenuElement.FindElements(By.XPath("//li"));
+                    geoZonesItem = GetMenuItemByName("Geo Zones", menuItems);
+                    geoZonesItem.Click();
                     GetCountriesFromZonesPage();
                 }
             }
