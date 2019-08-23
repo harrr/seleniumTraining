@@ -60,6 +60,7 @@
     <Compile Include="Tests\CheckDucksTest.cs" />
     <Compile Include="Tests\CheckMenuTest.cs" />
     <Compile Include="Tests\InitialTest.cs" />
+    <Compile Include="Tests\CheckSortingTest.cs" />
     <Compile Include="Tests\LoginTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
