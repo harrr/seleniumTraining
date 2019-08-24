@@ -18,7 +18,7 @@ namespace SelenuimInitial.Tests
             _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
         }
         [Test]
-        public void SortingCheckTest()
+        public void PageCheckTest()
         {
             try
             {
