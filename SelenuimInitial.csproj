@@ -55,10 +55,14 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests\CheckDucksTest.cs" />
     <Compile Include="Tests\CheckMenuTest.cs" />
+    <Compile Include="Tests\CheckRegistrationTest.cs" />
     <Compile Include="Tests\InitialTest.cs" />
     <Compile Include="Tests\CheckSortingTest.cs" />
     <Compile Include="Tests\LoginTest.cs" />
