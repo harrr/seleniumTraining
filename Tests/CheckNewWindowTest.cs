@@ -46,6 +46,7 @@ namespace SelenuimInitial.Tests
             }
             catch (Exception ex)
             {
+                base.stop(_driver);
                 throw ex;
             }
         }

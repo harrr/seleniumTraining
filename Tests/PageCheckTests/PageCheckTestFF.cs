@@ -84,7 +84,7 @@ namespace SelenuimInitial.Tests
             }
             catch (Exception ex)
             {
-                stop();
+                stop(_driver);
                 throw ex;
             }
         }
