@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Tests\AddNewItemTest.cs" />
     <Compile Include="Tests\CheckDucksTest.cs" />
+    <Compile Include="Tests\CheckLogsTest.cs" />
     <Compile Include="Tests\CheckMenuTest.cs" />
     <Compile Include="Tests\CheckNewWindowTest.cs" />
     <Compile Include="Tests\CheckRegistrationTest.cs" />

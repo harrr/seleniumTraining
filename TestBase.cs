@@ -12,12 +12,9 @@ namespace SelenuimInitial
 
         [SetUp]
         public abstract void Start();
-        
+
         [TearDown]
-        protected void stop(IWebDriver driver)
-        {
-            driver.Quit();
-            driver = null;
-        }
+        public abstract void stop();
+        
     }
 }

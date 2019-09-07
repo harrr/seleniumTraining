@@ -108,7 +108,6 @@ namespace SelenuimInitial.Tests
             }
             catch (Exception ex)
             {
-                stop();
                 throw ex;
             }
         }
@@ -164,7 +163,7 @@ namespace SelenuimInitial.Tests
             mainMenuElement = _driver.FindElement(By.Id("box-apps-menu"));
         }
         [TearDown]
-        public void stop()
+        public override void stop()
         {
             _driver.Quit();
             _driver = null;

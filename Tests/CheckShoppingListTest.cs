@@ -51,6 +51,12 @@ namespace SelenuimInitial.Tests
             {
                 throw ex;
             }
-        }        
+        }
+        [TearDown]
+        public override void stop()
+        {
+            _driver.Quit();
+            _driver = null;
+        }
     }
 }

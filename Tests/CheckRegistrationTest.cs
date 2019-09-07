@@ -87,13 +87,12 @@ namespace SelenuimInitial.Tests
             }
             catch (Exception ex)
             {
-                stop();
                 throw ex;
             }
         }
 
         [TearDown]
-        public void stop()
+        public override void stop()
         {
             _driver.Quit();
             _driver = null;

@@ -84,7 +84,6 @@ namespace SelenuimInitial.Tests
             }
             catch (Exception ex)
             {
-                stop(_driver);
                 throw ex;
             }
         }
@@ -112,6 +111,12 @@ namespace SelenuimInitial.Tests
             Assert.NotZero(int.Parse(colors[0]));
             Assert.Zero(int.Parse(colors[1]));
             Assert.Zero(int.Parse(colors[2]));
+        }
+        [TearDown]
+        public override void stop()
+        {
+            _driver.Quit();
+            _driver = null;
         }
     }
 }
