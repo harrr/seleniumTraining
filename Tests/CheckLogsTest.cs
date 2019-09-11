@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.Events;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.ObjectModel;
@@ -8,12 +9,13 @@ using System.Collections.ObjectModel;
 namespace SelenuimInitial.Tests
 {
     [TestFixture]
-    public class CheckLogsTest : TestBase
+    public class CheckLogsTest 
     {
-        private IWebDriver _driver;
+        private ChromeDriver _driver;
         private WebDriverWait _wait;
+        private IWebElement mainMenuElement;
         [SetUp]
-        public override void Start()
+        public void Start()
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--no-sandbox");
@@ -32,11 +34,19 @@ namespace SelenuimInitial.Tests
                 passwordField.SendKeys("admin");
                 var loginButton = _driver.FindElement(By.Name("login"));
                 loginButton.Click();
-                IWebElement mainMenuElement = _driver.FindElement(By.Id("box-apps-menu"));
+                mainMenuElement = _driver.FindElement(By.Id("box-apps-menu"));
                 var menuItems = mainMenuElement.FindElements(By.XPath("//li"));
                 GetMenuItemByName("Catalog", menuItems).Click();
-                var logs = _driver.Manage().Logs;
-                var logTypes = _driver.Manage().Logs.AvailableLogTypes;
+                IWebElement rubberDucksForder = _driver.FindElement(By.XPath("//table[@class='dataTable']//tr[@class='row'][2]//a"));
+                rubberDucksForder.Click();
+                var duckItems = _driver.FindElements(By.XPath("//table[@class='dataTable']//tr[@class='row']//td//img//..//a"));
+                for (int i = 0; i < duckItems.Count; i++)
+                {
+                    duckItems[i].Click();
+                    CheckLogs();
+                    _driver.Navigate().Back();
+                    duckItems = _driver.FindElements(By.XPath("//table[@class='dataTable']//tr[@class='row']//td//img//..//a"));
+                }
             }
             catch (Exception ex)
             {
@@ -55,8 +65,29 @@ namespace SelenuimInitial.Tests
             }
             return null;
         }
+
+        //пыталась сделать через eventfiringwebdriver ElementClicked, 
+        //но не получилось отписаться от события, и тест зацикливался
+        private void ElementClickedEvent(object e, WebElementEventArgs sender)
+        {
+            CheckLogs();
+            _driver.Navigate().Back();
+        }
+        private void CheckLogs()
+        {
+            var types = _driver.Manage().Logs.AvailableLogTypes; //возвращает "browser", "driver"
+            foreach(var type in types)
+            {
+                var logs = _driver.Manage().Logs.GetLog(type); //всегда возвращает null
+                if(logs.Count > 0)
+                {
+                    Console.WriteLine($"Found {logs.Count} of type {type}");
+                    Console.WriteLine(string.Join("\n", logs));
+                }
+            }
+        }
         [TearDown]
-        public override void stop()
+        public void stop()
         {
             _driver.Quit();
             _driver = null;

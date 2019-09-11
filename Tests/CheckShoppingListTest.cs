@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.ObjectModel;
+using SeleniumExtras.WaitHelpers;
 
 namespace SelenuimInitial.Tests
 {

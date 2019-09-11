@@ -37,4 +37,4 @@ C:\Users\alina\Documents\GitHub\seleniumTraining\obj\Debug\SelenuimInitial.cspro
 C:\Users\alina\Documents\GitHub\seleniumTraining\obj\Debug\SelenuimInitial.dll
 C:\Users\alina\Documents\GitHub\seleniumTraining\obj\Debug\SelenuimInitial.pdb
 C:\Users\alina\Documents\GitHub\seleniumTraining\bin\Debug\WebDriver.Support.dll
-C:\Users\alina\Documents\GitHub\seleniumTraining\bin\Debug\WebDriver.Support.xml
+C:\Users\alina\Documents\GitHub\seleniumTraining\bin\Debug\SeleniumExtras.WaitHelpers.dll
